@@ -6,9 +6,13 @@ import 'package:calculadora_imc/exception/nome_invalido_exception.dart';
 import 'package:calculadora_imc/functions/console_utils.dart';
 
 double calcularImc(double altura, double peso) {
-  var imc = (peso / (altura * altura));
-  imc = double.parse(imc.toStringAsFixed(1));
-  return imc.isNaN ? 0 : imc;
+  if ((altura <= 0) || (peso <= 0)) {
+    return 0;
+  } else {
+    var imc = (peso / (altura * altura));
+    imc = double.parse(imc.toStringAsFixed(1));
+    return imc.isNaN ? 0 : imc;
+  }
 }
 
 String lerConsole() {
